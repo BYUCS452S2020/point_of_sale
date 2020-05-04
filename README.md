@@ -1,2 +1,4 @@
 # point_of_sale
-point of sale system
+John Webster
+
+Project pitch can be found [here](project_pitch.pdf)
