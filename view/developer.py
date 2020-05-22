@@ -1,11 +1,15 @@
-import tkinter as tk
+from  PyQt5.QtWidgets import *
 from db import postgres
+
+
+# docker start posdb
+# docker ps
 
 def create_products():
     create_products_table = """
         CREATE TABLE IF NOT EXISTS products (
         barcode INTEGER PRIMARY KEY,
-        price NUMERIC(2),
+        price NUMERIC(12,2),
         name TEXT NOT NULL, 
         category TEXT,
         promoID INTEGER,
@@ -13,6 +17,7 @@ def create_products():
         )
         """
     postgres.execute_query(create_products_table)
+
 
 def create_taxes():
     create_taxes_table = """
@@ -23,6 +28,7 @@ def create_taxes():
         )
         """
     postgres.execute_query(create_taxes_table)
+
 
 def create_promos():
     create_promos_table = """
@@ -41,6 +47,7 @@ def drop_products():
         """
     postgres.execute_query(drop_products_table)
 
+
 def drop_taxes():
     drop_products_table = """ 
         DROP TABLE IF EXISTS taxes;
@@ -54,29 +61,53 @@ def drop_promos():
     postgres.execute_query(drop_products_table)
 
 
+def gui_create_products():
+    create_products()
 
-window = tk.Tk()
-window.title("create and drop tables")
+def gui_create_taxes():
+    create_taxes()
 
-my_label = tk.Label(text="create and drop tables ", width=40)
-my_label.pack()
+def gui_create_promos():
+    create_promos()
 
-create_products_button = tk.Button(text="create table products", command=create_products)
-create_products_button.pack()
+def gui_drop_products():
+    drop_products()
 
-create_taxes_button = tk.Button(text="create table taxes", command=create_taxes)
-create_taxes_button.pack()
+def gui_drop_taxes():
+    drop_taxes()
 
-create_promos_button = tk.Button(text="create table promos", command=create_promos)
-create_promos_button.pack()
+def gui_drop_promos():
+    drop_promos()
 
-drop_products_button = tk.Button(text="drop table products", command=drop_products)
-drop_products_button.pack()
 
-drop_taxes_button = tk.Button(text="drop table taxes", command=drop_taxes)
-drop_taxes_button.pack()
+app = QApplication([])
+window = QWidget()
+layout = QVBoxLayout()
 
-drop_promos_button = tk.Button(text="drop table promos", command=drop_promos)
-drop_promos_button.pack()
+button_create_products = QPushButton('create products')
+button_create_products.clicked.connect(gui_create_products)
+layout.addWidget(button_create_products)
 
-window.mainloop()
+button_create_taxes = QPushButton('create taxes')
+button_create_taxes.clicked.connect(gui_create_taxes)
+layout.addWidget(button_create_taxes)
+
+button_create_promos = QPushButton('create promos')
+button_create_promos.clicked.connect(gui_create_promos)
+layout.addWidget(button_create_promos)
+
+button_drop_products = QPushButton('drop products')
+button_drop_products.clicked.connect(gui_drop_products)
+layout.addWidget(button_drop_products)
+
+button_drop_taxes = QPushButton('drop taxes')
+button_drop_taxes.clicked.connect(gui_drop_taxes)
+layout.addWidget(button_drop_taxes)
+
+button_drop_promos = QPushButton('drop promos')
+button_drop_promos.clicked.connect(gui_drop_promos)
+layout.addWidget(button_drop_promos)
+
+window.setLayout(layout)
+window.show()
+app.exec_()
