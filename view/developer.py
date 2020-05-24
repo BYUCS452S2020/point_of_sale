@@ -24,7 +24,7 @@ def create_taxes():
         CREATE TABLE IF NOT EXISTS taxes (
         taxID INTEGER PRIMARY KEY,
         name TEXT NOT NULL, 
-        rate INTEGER
+        rate NUMERIC(12,6)
         )
         """
     postgres.execute_query(create_taxes_table)
@@ -35,7 +35,7 @@ def create_promos():
         CREATE TABLE IF NOT EXISTS promos (
         promoID INTEGER PRIMARY KEY,
         name TEXT NOT NULL, 
-        discount INTEGER
+        discount NUMERIC(12,6)
         )
         """
     postgres.execute_query(create_promos_table)

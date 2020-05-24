@@ -2,6 +2,7 @@ from  PyQt5.QtWidgets import *
 from db import postgres
 
 
+#TODO: fix this function so it works if there is no discount
 def calculate_price(barcode):
     select_item = """
     SELECT products.price, taxes.rate, promos.discount, products.name FROM products
@@ -23,18 +24,23 @@ def calculate_price(barcode):
     rate = result[0][1]
     discount = result[0][2]
     name = result[0][3]
-    final_price = price * rate * discount
+    discounted_price = price - (price * discount)
+    tax = rate * discounted_price
+    final_price = discounted_price + tax
     return final_price, name
 
 
 #todo: add error checking and input validation
 def gui_scan_item():
     barcode_number = line_edit_barcode.text()
+    line_edit_barcode.selectAll()
+    line_edit_barcode.backspace()
+
     final_price, name = calculate_price(barcode_number)
     print(final_price)
     print(name)
-
-
+    label_calculations.setText(" ")
+    label_final_price.setText(name + " - " + str(round(final_price, 2)))
 
 
 app = QApplication([])
@@ -47,6 +53,12 @@ layout.addWidget(button_create_products)
 
 line_edit_barcode = QLineEdit()
 layout.addWidget(line_edit_barcode)
+
+label_calculations = QLabel()
+layout.addWidget(label_calculations)
+
+label_final_price = QLabel()
+layout.addWidget(label_final_price)
 
 window.setLayout(layout)
 window.show()
