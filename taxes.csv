@@ -1,0 +1,7 @@
+name,rate
+small tax,0.01
+medium tax,0.1
+big tax,0.5
+all tax,1.0
+no tax,0.0
+tea tax,0.1776

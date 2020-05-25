@@ -1,0 +1,7 @@
+name,discount
+small promo,0.99
+medium promo,0.9
+big promo,0.5
+no promo,1.0
+free promo,0.0
+weird promo,0.123
