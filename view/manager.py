@@ -1,7 +1,6 @@
 from  PyQt5.QtWidgets import *
 from db import postgres
 
-#don't let manager add a product unless the taxid is valid. this is solved with drop down list
 #enforce unique product, tax, and promo names
 # add tax rules
 
@@ -15,17 +14,28 @@ def get_promos():
     result = postgres.execute_read_query(query)
     return result
 
-#todo: db access function
+#todo: seperate db access from GUI.
 def add_product():
     tax_index = combo_box_taxes.currentIndex() #tax_index is
-    tax_id = taxes[tax_index][0] #tax_id is the DB key in taxes table
+    tax_id = str(taxes[tax_index][0]) #tax_id is the DB key in taxes table
     promo_index = combo_box_promos.currentIndex()
-    promo_id = promos[promo_index][0]
+    promo_id = str(promos[promo_index][0])
     print("adding product:")
-    product_name = line_edit_product_name.text()
-    product_category = line_edit_product_category.text()
-    product_barcode = line_edit_product_barcode.text()
+    product_name = str(line_edit_product_name.text())
+    product_category = str(line_edit_product_category.text())
+    product_price = str(line_edit_product_price.text())
     print("tax id=" + str(tax_id) + " promo id=" + str(promo_id) + " name ="+ product_name)
+    query = "insert into products (barcode, price, name, category, promoid, taxid) values (DEFAULT," + product_price + ",'" + product_name + "','" + product_category + "'," + promo_id + "," + tax_id + ") returning barcode"
+    print(query)
+    result = postgres.execute_read_query(query)
+    line_edit_product_name.selectAll()
+    line_edit_product_name.backspace()
+    line_edit_product_category.selectAll()
+    line_edit_product_category.backspace()
+    line_edit_product_price.selectAll()
+    line_edit_product_price.backspace()
+    label_new_barcode.setText("added product: " + product_name + " - barcode="+ str(result[0][0]))
+
 
 app = QApplication([])
 window = QWidget()
@@ -63,11 +73,15 @@ line_edit_product_category = QLineEdit()
 layout.addWidget(line_edit_product_category)
 
 label_prod_barcode = QLabel()
-label_prod_barcode.setText("product barcode")
+label_prod_barcode.setText("product price")
 layout.addWidget(label_prod_barcode)
 
-line_edit_product_barcode = QLineEdit()
-layout.addWidget(line_edit_product_barcode)
+line_edit_product_price = QLineEdit()
+layout.addWidget(line_edit_product_price)
+
+label_new_barcode = QLabel()
+label_new_barcode.setText("")
+layout.addWidget(label_new_barcode)
 
 #before allow user to submit, check the index of the 2 combo boxes to get the tax and promo forigen keys from combo_box_promos /taxes
 button_submit_new_product = QPushButton('add product')

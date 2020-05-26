@@ -62,6 +62,7 @@ def drop_promos():
 
 
 def insert_row(table, columns, values):
+
     assert len(columns) == len(values), ('Columns and values don\'t match')
 
     values_str = str(values)[1:-1]
