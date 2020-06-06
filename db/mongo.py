@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 client = MongoClient()
-client = MongoClient('localhost', 27017)
+client = MongoClient('192.168.99.100', 27017)
 db = client['pos']
 products = db.products
 taxes = db.taxes
@@ -39,3 +39,18 @@ def delete_all_promos():
 
 def delete_all_taxes():
     db.taxes.remove({})
+
+def get_promos():
+    result = db.promos.find({})
+    return result
+
+def get_taxes():
+    result = list(db.taxes.find({}))
+    return result
+
+def update_tax(name, rate):
+    db.taxes.update_one({'name':name}, {'$set':{'rate':rate}})
+
+def delete_product(barcode):
+    db.products.remove({'barcode':barcode})
+

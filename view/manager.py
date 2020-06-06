@@ -1,41 +1,63 @@
 from  PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-#from db import postgres
+from db import mongo
 
-#enforce unique product, tax, and promo names
-# add tax rules
+taxes = mongo.get_taxes() #will be updated everytime gui is refreshed.
+promos = mongo.get_promos()
+#updates combo boxes
+def refresh_gui():
+    promos = mongo.get_promos()
+    global taxes
+    taxes = mongo.get_taxes()
+    promos = mongo.get_promos()
+    tax_combo_box_taxes.clear()
+    combo_box_taxes.clear()
+    for t in taxes:
+        tax_combo_box_taxes.addItem(t['name'] + ' ' + str(t['rate']))
+        combo_box_taxes.addItem(t['name'] + ' ' + str(t['rate']))
+    combo_box_promos.clear()
+    for p in promos:
+        combo_box_promos.addItem(p['name'])
 
-def get_taxes():
-    return "get_taxes()"
-
-def get_promos():
-    return "get_promos()"
 
 
+
+
+#Gets called when the submit button is pressed for the update taxes part of the GUI
 def update_taxes_gui():
+    if len(line_edit_taxes.text()) == 0:
+        return
     tax_rate = line_edit_taxes.text()
+    tax_index = tax_combo_box_taxes.currentIndex()
+    tax_name = taxes[tax_index]['name']
     line_edit_taxes.clear()
-    print("update taxes " + tax_rate)
+    mongo.update_tax(tax_name, tax_rate)
+    refresh_gui()
 
+#Gets called when the submit button is pressed for the delete product part of the GUI
 def delete_product_gui():
     barcode = (delete_product_line_edit.text())
     delete_product_line_edit.clear()
-    print("delete a product: " + str(barcode))
+    mongo.delete_product(barcode)
 
-#todo: seperate db access from GUI.
+#Gets called when the submit button is pressed for the add product part of the GUI
 def add_product_gui():
+    barcode = line_edit_product_barcode.text()
     tax_index = combo_box_taxes.currentIndex() #tax_index is
-    tax_id = " " #str(taxes[tax_index][0]) #tax_id is the DB key in taxes table
+    tax_name =  taxes[tax_index]['name']
     promo_index = combo_box_promos.currentIndex()
-    promo_id = " "#str(promos[promo_index][0])
-    product_name = str(line_edit_product_name.text())
-    product_category = str(line_edit_product_category.text())
-    product_price = str(line_edit_product_price.text())
-    print("Add product. tax id=" + str(tax_id) + " promo id=" + str(promo_id) + " name="+ product_name + " price=" + product_price + " category=" + product_category)
+    promo_id = promos[promo_index]['name']
+    product_name = line_edit_product_name.text()
+    product_category = line_edit_product_category.text()
+    product_price = line_edit_product_price.text()
+    print("Add product. tax name=" + str(tax_name) + " promo id=" + str(promo_id) + " name="+ product_name + " price=" + product_price + " category=" + product_category)
     line_edit_product_name.clear()
     line_edit_product_category.clear()
     line_edit_product_price.clear()
+    line_edit_product_barcode.clear()
     #label_new_barcode.setText("added product: " + product_name + " - barcode="+ str(result[0][0]))
+    #mongo.insert_product(barcode, price, name, category, promoID, taxID)
+    mongo.insert_product(barcode, product_price, product_name, product_category, promo_id, tax_name)
 
 
 ##### GUI ######
@@ -51,10 +73,10 @@ update_tax_hello = QLabel()
 update_tax_hello.setText("Update Taxes")
 update_taxes_layout.addWidget(update_tax_hello, 0, Qt.AlignTop)
 
-combo_box_taxes = QComboBox()
-combo_box_taxes.addItem("taxes 1")
-combo_box_taxes.addItem("taxes 2")
-update_taxes_layout.addWidget(combo_box_taxes, 0, Qt.AlignTop)
+tax_combo_box_taxes = QComboBox()
+tax_combo_box_taxes.addItem("taxes 1")
+tax_combo_box_taxes.addItem("taxes 2")
+update_taxes_layout.addWidget(tax_combo_box_taxes, 0, Qt.AlignTop)
 
 line_edit_taxes = QLineEdit()
 line_edit_taxes.setPlaceholderText("new tax value")
@@ -110,6 +132,10 @@ line_edit_product_price = QLineEdit()
 line_edit_product_price.setPlaceholderText("product price")
 add_product_layout.addWidget(line_edit_product_price)
 
+line_edit_product_barcode = QLineEdit()
+line_edit_product_barcode.setPlaceholderText("barcode")
+add_product_layout.addWidget(line_edit_product_barcode)
+
 label_new_barcode = QLabel()
 label_new_barcode.setText("")
 add_product_layout.addWidget(label_new_barcode)
@@ -127,4 +153,5 @@ main_layout.addSpacing(40)
 main_layout.addLayout(update_taxes_layout)
 window.setLayout(main_layout)
 window.show()
+refresh_gui()
 app.exec_()
