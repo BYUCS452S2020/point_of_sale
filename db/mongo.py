@@ -54,3 +54,20 @@ def update_tax(name, rate):
 def delete_product(barcode):
     db.products.remove({'barcode':barcode})
 
+def get_product(barcode):
+    barcode = int(barcode)
+    result = list(db.products.find({'barcode':barcode}))
+    return result
+
+
+#returns the tax rate given the name.
+def get_one_tax(name):
+    result = db.taxes.find({'name':name})
+    return result[0]['rate']
+
+def get_one_promo(name):
+    result = db.promos.find({'name':name})
+    return result[0]['discount']
+
+#res = get_product(1)
+#print(res)
