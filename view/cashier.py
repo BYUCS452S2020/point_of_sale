@@ -1,29 +1,21 @@
 from  PyQt5.QtWidgets import *
-from db import postgres
+from db import mongo
 
 
 #TODO: fix this function so it works if there is no discount
 def calculate_price(barcode):
-    select_item = """
-    SELECT products.price, taxes.rate, promos.discount, products.name FROM products
-        JOIN taxes ON products.taxID = taxes.taxID
-        JOIN promos ON products.promoID = promos.promoID
-    WHERE products.barcode = """ + barcode
-
-    result = postgres.execute_read_query(select_item)
-
-    if len(result) > 1:
-        raise Exception("Only one product should be returned")
-
-    if len(result) == 0:
-        raise Exception("no result returned for this barcode")
-
-    # result looks like this: [(price, tax, discount, name)]
+    result = mongo.get_product(barcode)
     print(result)
-    price = result[0][0]
-    rate = result[0][1]
-    discount = result[0][2]
-    name = result[0][3]
+    tax_name = result[0]['taxID']
+    promo_name = result[0]['promoID']
+    print(tax_name)
+    # result looks like this: [(price, tax, discount, name)]
+    price = result[0]['price']
+    print(price)
+    rate = mongo.get_one_tax(tax_name)
+    print(rate)
+    discount = mongo.get_one_promo(promo_name)
+    name = result[0]['name']
     discounted_price = price - (price * discount)
     tax = rate * discounted_price
     final_price = discounted_price + tax
@@ -33,9 +25,8 @@ def calculate_price(barcode):
 #todo: add error checking and input validation
 def gui_scan_item():
     barcode_number = line_edit_barcode.text()
-    line_edit_barcode.selectAll()
-    line_edit_barcode.backspace()
-
+    line_edit_barcode.clear()
+    calculate_price(barcode_number)
     final_price, name = calculate_price(barcode_number)
     print(final_price)
     print(name)

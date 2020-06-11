@@ -1,101 +1,101 @@
 barcode,price,name,category,promoID,taxID
-1,98.82 ,Branberries,food,1,5
-2,44.42 ,Baby Donuts,food,2,3
-3,42.04 ,Baby Sausage,food,3,2
-4,43.05 ,Bacon Jerky,food,5,3
-5,79.75 ,Bacon Sticks,food,1,3
-6,90.61 ,BactoWeave,appliance,3,2
-7,5.33 ,Baffledil,appliance,2,1
-8,97.61 ,Bag It!,food,3,3
-9,10.96 ,Bag of Scones,food,3,1
-10,51.33 ,Balancing Action,appliance,2,5
-11,68.65 ,Balkan Beef,food,1,3
-12,85.46 ,Ball Lightning,service,2,3
-13,40.19 ,Bamboo Gnu,material,5,3
-14,20.27 ,Bamboolong,material,0,2
-15,9.20 ,BangÕaBone,appliance,1,1
-16,63.88 ,Burning Man Sunscreen,health,2,1
-17,43.15 ,Barbie Real,toy,4,1
-18,14.43 ,Barely Bacon,food,3,1
-19,16.73 ,Barn Soup,food,3,4
-20,73.11 ,Barnacle Power,service,0,2
-21,10.82 ,Barnacle Tap,cleaning,2,4
-22,79.37 ,Barney Toy,service,4,5
-23,19.20 ,BarTelevision,entertainment,1,2
-24,22.56 ,Basil Bromide,cleaning,0,5
-25,51.51 ,Bath and Relax,service,5,1
-26,12.36 ,Bathe Away,service,2,3
-27,89.90 ,Bath-Lite,appliance,4,5
-28,6.12 ,Battle Screen,entertainment,2,1
-29,28.33 ,Baubles,cleaning,4,2
-30,17.37 ,BBQÕd Napkins,food,5,1
-31,99.36 ,Bead2Bead,service,3,5
-32,82.28 ,Beadniks,food,3,2
-33,40.38 ,BeanCounter,material,4,3
-34,55.80 ,BeanThere,service,4,1
-35,15.47 ,Beauty in a Bottle,health,0,2
-36,63.13 ,BeautyStretch,health,5,5
-37,16.28 ,Bedder,service,0,2
-38,10.12 ,Bed Springs,furniture,3,2
-39,23.22 ,Bedleham Trip,service,3,2
-40,86.87 ,Bedware,furniture,0,4
-41,30.58 ,Bee Salt,food,2,4
-42,84.93 ,Bee Salt Cream,food,0,1
-43,88.28 ,Bee Saw,appliance,4,2
-44,26.62 ,Beef Blackout,food,1,2
-45,85.00 ,Beef Blanks,food,0,3
-46,34.58 ,Beef Bowl Knoll,food,5,3
-47,38.13 ,Beefbelly,food,0,1
-48,96.74 ,Beer Puppets,food,4,4
-49,71.17 ,Beeragra,service,0,1
-50,29.36 ,Beegle Care,service,1,4
-51,61.04 ,Belt,clothing,2,1
-52,40.36 ,Beige and Briney,service,4,1
-53,10.44 ,Bela Bites,food,0,2
-54,46.85 ,Bella Outdoors,service,2,5
-55,21.14 ,Belly Jelly,health,2,5
-56,35.36 ,Belly-flop cream,health,0,3
-57,57.64 ,Beluga Gum,food,0,4
-58,47.74 ,Bermo,food,4,2
-59,5.77 ,Berryboy,food,0,5
-60,76.64 ,Besto,sed,1,4
-61,29.35 ,Better Then Chicken,food,1,2
-62,5.56 ,Bewildering Chicken,food,3,1
-63,41.49 ,Beyond Bedding,furniture,3,1
-64,36.94 ,BeyondSleep,furniture,2,1
-65,45.06 ,Billy Boy Pants,clothing,1,5
-66,4.50 ,Bicyclone,entertainment,3,5
-67,88.26 ,BiffPaste,health,3,2
-68,57.82 ,Biflex,health,3,1
-69,21.90 ,Big Juicy Apple,food,5,1
-70,36.39 ,BigCookie,food,5,1
-71,76.35 ,BigTent,entertainment,2,4
-72,51.46 ,BigWay,entertainment,5,2
-73,18.19 ,Bike Along,service,5,1
-74,65.95 ,Billion Air,service,5,1
-75,51.81 ,Bimbowl,appliance,3,1
-76,69.96 ,Binarium,entertainment,1,1
-77,21.82 ,Bingles,food,4,5
-78,78.74 ,Bingo Storm,service,2,5
-79,79.35 ,Biolid,health,0,4
-80,60.32 ,Biological Interface,appliance,5,3
-81,41.00 ,Birthday Potato,food,0,5
-82,35.71 ,Biscotti de Chien,food,2,2
-83,85.73 ,BiteÕEms,food,5,3
-84,86.04 ,Bitskater,service,0,3
-85,34.92 ,Bitter Plaid,clothing,1,5
-86,25.77 ,Bittor,entertainment,3,4
-87,61.66 ,Bizmatic,appliance,0,1
-88,53.59 ,BizSweeper,appliance,3,1
-89,70.34 ,BizWhiz,appliance,1,5
-90,20.67 ,Black Belt Barbie,toy,5,1
-91,24.90 ,Black Vinyl,material,2,5
-92,81.09 ,Blahg,material,0,3
-93,38.76 ,Blanked Beef,food,4,5
-94,15.63 ,Blazarus Trip,service,4,3
-95,50.30 ,Blaze Chicken,food,1,5
-96,78.46 ,Bleach Melba,cleaning,0,2
-97,31.46 ,Blind Truss,service,1,1
-98,69.25 ,Blink!,entertainment,2,2
-99,9.34 ,Blink! 2,entertainment,0,5
-100,20.76 ,Blister Burger,food,2,1
+1,98.82,Branberries,food,medium promo,no tax
+2,44.42,Baby Donuts,food,big promo,big tax
+3,42.04,Baby Sausage,food,no promo,medium tax
+4,43.05,Bacon Jerky,food,black friday discount,big tax
+5,79.75,Bacon Sticks,food,medium promo,big tax
+6,90.61,BactoWeave,appliance,no promo,medium tax
+7,5.33,Baffledil,appliance,big promo,small tax
+8,97.61,Bag It!,food,no promo,big tax
+9,10.96,Bag of Scones,food,no promo,small tax
+10,51.33,Balancing Action,appliance,big promo,no tax
+11,68.65,Balkan Beef,food,medium promo,big tax
+12,85.46,Ball Lightning,service,big promo,big tax
+13,40.19,Bamboo Gnu,material,black friday discount,big tax
+14,20.27,Bamboolong,material,small promo,medium tax
+15,9.2,BangÕaBone,appliance,medium promo,small tax
+16,63.88,Burning Man Sunscreen,health,big promo,small tax
+17,43.15,Barbie Real,toy,free promo,small tax
+18,14.43,Barely Bacon,food,no promo,small tax
+19,16.73,Barn Soup,food,no promo,all tax
+20,73.11,Barnacle Power,service,small promo,medium tax
+21,10.82,Barnacle Tap,cleaning,big promo,all tax
+22,79.37,Barney Toy,service,free promo,no tax
+23,19.2,BarTelevision,entertainment,medium promo,medium tax
+24,22.56,Basil Bromide,cleaning,small promo,no tax
+25,51.51,Bath and Relax,service,black friday discount,small tax
+26,12.36,Bathe Away,service,big promo,big tax
+27,89.9,Bath-Lite,appliance,free promo,no tax
+28,6.12,Battle Screen,entertainment,big promo,small tax
+29,28.33,Baubles,cleaning,free promo,medium tax
+30,17.37,BBQÕd Napkins,food,black friday discount,small tax
+31,99.36,Bead2Bead,service,no promo,no tax
+32,82.28,Beadniks,food,no promo,medium tax
+33,40.38,BeanCounter,material,free promo,big tax
+34,55.8,BeanThere,service,free promo,small tax
+35,15.47,Beauty in a Bottle,health,small promo,medium tax
+36,63.13,BeautyStretch,health,black friday discount,no tax
+37,16.28,Bedder,service,small promo,medium tax
+38,10.12,Bed Springs,furniture,no promo,medium tax
+39,23.22,Bedleham Trip,service,no promo,medium tax
+40,86.87,Bedware,furniture,small promo,all tax
+41,30.58,Bee Salt,food,big promo,all tax
+42,84.93,Bee Salt Cream,food,small promo,small tax
+43,88.28,Bee Saw,appliance,free promo,medium tax
+44,26.62,Beef Blackout,food,medium promo,medium tax
+45,85,Beef Blanks,food,small promo,big tax
+46,34.58,Beef Bowl Knoll,food,black friday discount,big tax
+47,38.13,Beefbelly,food,small promo,small tax
+48,96.74,Beer Puppets,food,free promo,all tax
+49,71.17,Beeragra,service,small promo,small tax
+50,29.36,Beegle Care,service,medium promo,all tax
+51,61.04,Belt,clothing,big promo,small tax
+52,40.36,Beige and Briney,service,free promo,small tax
+53,10.44,Bela Bites,food,small promo,medium tax
+54,46.85,Bella Outdoors,service,big promo,no tax
+55,21.14,Belly Jelly,health,big promo,no tax
+56,35.36,Belly-flop cream,health,small promo,big tax
+57,57.64,Beluga Gum,food,small promo,all tax
+58,47.74,Bermo,food,free promo,medium tax
+59,5.77,Berryboy,food,small promo,no tax
+60,76.64,Besto,sed,medium promo,all tax
+61,29.35,Better Then Chicken,food,medium promo,medium tax
+62,5.56,Bewildering Chicken,food,no promo,small tax
+63,41.49,Beyond Bedding,furniture,no promo,small tax
+64,36.94,BeyondSleep,furniture,big promo,small tax
+65,45.06,Billy Boy Pants,clothing,medium promo,no tax
+66,4.5,Bicyclone,entertainment,no promo,no tax
+67,88.26,BiffPaste,health,no promo,medium tax
+68,57.82,Biflex,health,no promo,small tax
+69,21.9,Big Juicy Apple,food,black friday discount,small tax
+70,36.39,BigCookie,food,black friday discount,small tax
+71,76.35,BigTent,entertainment,big promo,all tax
+72,51.46,BigWay,entertainment,black friday discount,medium tax
+73,18.19,Bike Along,service,black friday discount,small tax
+74,65.95,Billion Air,service,black friday discount,small tax
+75,51.81,Bimbowl,appliance,no promo,small tax
+76,69.96,Binarium,entertainment,medium promo,small tax
+77,21.82,Bingles,food,free promo,no tax
+78,78.74,Bingo Storm,service,big promo,no tax
+79,79.35,Biolid,health,small promo,all tax
+80,60.32,Biological Interface,appliance,black friday discount,big tax
+81,41,Birthday Potato,food,small promo,no tax
+82,35.71,Biscotti de Chien,food,big promo,medium tax
+83,85.73,BiteÕEms,food,black friday discount,big tax
+84,86.04,Bitskater,service,small promo,big tax
+85,34.92,Bitter Plaid,clothing,medium promo,no tax
+86,25.77,Bittor,entertainment,no promo,all tax
+87,61.66,Bizmatic,appliance,small promo,small tax
+88,53.59,BizSweeper,appliance,no promo,small tax
+89,70.34,BizWhiz,appliance,medium promo,no tax
+90,20.67,Black Belt Barbie,toy,black friday discount,small tax
+91,24.9,Black Vinyl,material,big promo,no tax
+92,81.09,Blahg,material,small promo,big tax
+93,38.76,Blanked Beef,food,free promo,no tax
+94,15.63,Blazarus Trip,service,free promo,big tax
+95,50.3,Blaze Chicken,food,medium promo,no tax
+96,78.46,Bleach Melba,cleaning,small promo,medium tax
+97,31.46,Blind Truss,service,medium promo,small tax
+98,69.25,Blink!,entertainment,big promo,medium tax
+99,9.34,Blink! 2,entertainment,small promo,no tax
+100,20.76,Blister Burger,food,big promo,small tax
